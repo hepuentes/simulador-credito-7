@@ -176,4 +176,6 @@ if st.button("Simular"):
     # Botón de WhatsApp (Corregido)
     st.markdown("""
         <div class="whatsapp-box">
-            <h3>¿Interesado
+            <h3>¿Interesado en solicitar este crédito?</h3>
+            <p>Para más información, comuníquese con nosotros por WhatsApp:</p>
+           
