@@ -178,4 +178,4 @@ if st.button("Simular"):
         <div class="whatsapp-box">
             <h3>¿Interesado en solicitar este crédito?</h3>
             <p>Para más información, comuníquese con nosotros por WhatsApp:</p>
-           
+            <p><a href="https://wa.me/XXXXXXXX
