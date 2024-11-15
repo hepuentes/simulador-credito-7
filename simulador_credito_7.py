@@ -109,18 +109,16 @@ detalles = LINEAS_DE_CREDITO[tipo_credito]
 # Mostrar descripción del crédito
 st.write(f"**Descripción**: {detalles['descripcion']}")
 
-# Selección del monto con formato numérico y separador de miles
+# Selección del monto con formato numérico
 st.markdown("<p style='font-weight: bold; font-size: 16px; margin-bottom: -10px;'>Escribe el valor del crédito</p>", unsafe_allow_html=True)
 st.write(f"<small>Ingresa un valor entre {detalles['monto_min']:,} y {detalles['monto_max']:,} COP</small>", unsafe_allow_html=True)
-monto_input = st.text_input("", value=f"${detalles['monto_min']:,} COP")
-
-# Limitar el monto y convertirlo a número
-try:
-    monto = int(monto_input.replace('$', '').replace(' COP', '').replace(',', ''))
-    if monto < detalles["monto_min"] or monto > detalles["monto_max"]:
-        st.warning("El monto ingresado no está dentro del rango permitido.")
-except ValueError:
-    monto = detalles["monto_min"]
+monto = st.number_input(
+    "",
+    min_value=detalles["monto_min"],
+    max_value=detalles["monto_max"],
+    step=50000,
+    format="%d"
+)
 
 # Cálculo del aval
 aval = monto * detalles["aval_porcentaje"]
@@ -173,8 +171,7 @@ if st.button("Simular"):
         st.write(f"**Total del Interés a Pagar**: COP {total_interes:,.0f}")
         st.write(f"**Total a Pagar**: COP {total_pagar:,.0f}")
 
-    # Botón de WhatsApp (Corregido y Completo)
-    st.markdown("""
-        <div class="whatsapp-box">
-            <h3>¿Interesado en solicitar este crédito?</h3>
-            <p>Para más información, comuníquese con nosotros por WhatsApp:</p>
+    # Botón de WhatsApp
+    st.markdown("<h3 style='text-align: center;'>¿Interesado en solicitar este crédito?</h3>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>Para más información, comuníquese con nosotros por WhatsApp:</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'><a href='https://wa.me/XXXXXXXXXXX' target='_blank' class='whatsapp-link'>Hacer solicitud vía WhatsApp</a></p>", unsafe_allow_html=True)
