@@ -173,7 +173,7 @@ if st.button("Simular"):
         st.write(f"**Total del Interés a Pagar**: COP {total_interes:,.0f}")
         st.write(f"**Total a Pagar**: COP {total_pagar:,.0f}")
 
-    # Botón de WhatsApp
-    st.markdown("<h3 style='text-align: center;'>¿Interesado en solicitar este crédito?</h3>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center;'>Para más información, comuníquese con nosotros por WhatsApp:</p>", unsafe_allow_html=True)
-    st
+    # Botón de WhatsApp (Corregido)
+    st.markdown("""
+        <div class="whatsapp-box">
+            <h3>¿Interesado
